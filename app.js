@@ -2,9 +2,10 @@ var express = require('express');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var passport = require('passport');
 
 var config = require('omsapi-config');
-var routes = require('./routes/index');
+var routes = require('./routes/index')(passport);
 
 var options = {
     server: {
@@ -20,7 +21,7 @@ var options = {
         }
     }
 };
-console.log(config.get('mongodb:connection'));
+
 mongoose.connect(config.get('mongodb:connection'), options);
 
 var app = express();
