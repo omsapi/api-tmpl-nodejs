@@ -7,7 +7,7 @@ var passport = require('passport');
 var config = require('omsapi-config');
 var routes = require('./routes/index')(passport);
 
-require('./config/passport/jwt-passport')(passport);
+require('./config/passport/access-token-passport')(passport);
 
 var options = {
     server: {

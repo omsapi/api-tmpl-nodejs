@@ -7,7 +7,7 @@ module.exports = function (passport) {
         new JwtStrategy({
             secretOrKey: config.get('token:accessSecret'),
             jwtFromRequest: ExtractJwt.fromAuthHeader()
-        }), function (payload, done) {
+        }, function (payload, done) {
             done(null, payload);
-        });
+        }));
 };
